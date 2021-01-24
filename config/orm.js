@@ -30,11 +30,19 @@ function objToSql(ob) {
 }
 
 var orm = {
-  selectAll: function () {},
+  all: function (tableInput, cb) {
+    var queryString = "SELECT * FROM " + tableInput + ";";
 
-  insertOne: function () {},
+    connection.query(queryString, function (err, results) {
+      if (err) throw err;
 
-  updateOne: function () {},
+      cb(results);
+    });
+  },
+
+  // create: function () {},
+
+  // update: function () {},
 };
 
 module.exports = orm;
