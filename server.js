@@ -1,5 +1,3 @@
-// ===== Dependencies =====
-
 var express = require("express");
 
 var PORT = process.env.PORT || 8080;
@@ -12,7 +10,7 @@ app.use(express.static("public"));
 // Parse application as JSON
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.join());
+app.use(express.json());
 
 // Sets Handlebars
 
