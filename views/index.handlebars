@@ -15,7 +15,7 @@
 
                     <span class="input-group-btn">
 
-                        <form action="">
+                        <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
                             <input type="hidden" name="devoured" value="true">
                             <button class="btn btn-default btn-lg" type="submit">Devour it!</button>
                             <button class="delete-burger" data-id="{{this.id}}">
@@ -59,7 +59,7 @@
     <h2>Add Burger</h2>
     <p class="lead"> Add additional burgers here! </p>
 
-    <form class="create-update-form" action="">
+    <form class="create-update-form" action="burgers/create" method="POST">
 
         <div class="form-group">
             <textarea class="form-control input-lg" type="text" name="burge_name" rows="3"> </textarea>
