@@ -14,11 +14,12 @@
                     <p class="lead">{{burger_name}}</p>
 
                     <span class="devour-btn">
-                        <button class="change-devour" data-id="{{id}}">
-                            DEVOUR BURGER!
+                        <button class="change-devour" data-id="{{id}}" data-devourburger="{{devoured}}">
+                            {{#unless devoured}}DEVOUR BURGER!{{/unless}}
                         </button>
                         <button class="delete-burger" data-id="{{this.id}}">
-                            DELETE!</button>
+                            DELETE!
+                        </button>
                     </span>
                 </li>
                 {{/unless}}
@@ -37,6 +38,12 @@
                     {{#if devoured}}
                     <li class="list-group-item">
                         <p class="lead">{{burger_name}}</p>
+
+                        <span class="devour-btn">
+                            <button class="delete-burger" data-id="{{this.id}}">
+                                DELETE!
+                            </button>
+                        </span>
                     </li>
                     {{/if}}
                     {{/each}}
@@ -50,7 +57,7 @@
     <form class="create-form">
         <div class="form-group">
             <label for="burge">Burger Name:</label>
-            <input type="text" id="burge" name="name">
+            <input type="text" id="burge" name="burger_name">
         </div>
 
         <button type="submit">Add Burger</button>

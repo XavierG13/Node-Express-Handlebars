@@ -15,16 +15,22 @@ router.get("/", function (req, res) {
   });
 });
 
-// will be used to create a new burger of users choice
-router.post("/api/burgers", function (req, res) {
-  console.log(res);
-  burger.create(
-    ["burger_name", "devoured"],
-    [req.body.burger_name, req.body.devoured],
-    function (results) {
-      // will send the id of the new burger back
-      res.json({ id: results.insertId });
-    }
-  );
+router.put("/api/burgers/:id", function (req, res) {
+  var condition = "id = " + req.params.id;
+
+  console.log("condition", condition);
 });
+
+// // will be used to create a new burger of users choice
+// router.post("/api/burgers", function (req, res) {
+//   console.log(res);
+//   burger.create(
+//     ["burger_name", "devoured"],
+//     [req.body.burger_name, req.body.devoured],
+//     function (results) {
+//       // will send the id of the new burger back
+//       res.json({ id: results.insertId });
+//     }
+//   );
+// });
 module.exports = router;
