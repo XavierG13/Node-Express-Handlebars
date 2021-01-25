@@ -1,7 +1,7 @@
 <div class="container">
 
     <div class="jumboton">
-        <img src="/assets/img/burger.jpg" alt="burger">
+        <img src="/assets/img/burger.jpg" alt="burger" width="auto" height="auto">
         <h2>Burgers to be DEVOURED!</h2>
     </div>
 
@@ -13,14 +13,17 @@
                 <li class="list-group-item">
                     <p class="lead">{{burger_name}}</p>
 
-                    <span class="devour-btn">
-                        <button class="change-devour" data-id="{{id}}" data-devourburger="{{devoured}}">
-                            {{#unless devoured}}DEVOUR BURGER!{{/unless}}
-                        </button>
-                        <button class="delete-burger" data-id="{{this.id}}">
-                            DELETE!
-                        </button>
+                    <span class="input-group-btn">
+
+                        <form action="">
+                            <input type="hidden" name="devoured" value="true">
+                            <button class="btn btn-default btn-lg" type="submit">Devour it!</button>
+                            <button class="delete-burger" data-id="{{this.id}}">
+                                DELETE!
+                            </button>
+                        </form>
                     </span>
+
                 </li>
                 {{/unless}}
                 {{/each}}
@@ -44,6 +47,7 @@
                                 DELETE!
                             </button>
                         </span>
+
                     </li>
                     {{/if}}
                     {{/each}}
@@ -53,14 +57,15 @@
     </ul>
 
     <h2>Add Burger</h2>
+    <p class="lead"> Add additional burgers here! </p>
 
-    <form class="create-form">
+    <form class="create-update-form" action="">
+
         <div class="form-group">
-            <label for="burge">Burger Name:</label>
-            <input type="text" id="burge" name="burger_name">
+            <textarea class="form-control input-lg" type="text" name="burge_name" rows="3"> </textarea>
         </div>
 
-        <button type="submit">Add Burger</button>
+        <button class="btn btn-default btn-lg" type="submit">Add Burger!</button>
     </form>
 
 </div>

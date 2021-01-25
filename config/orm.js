@@ -40,9 +40,36 @@ var orm = {
     });
   },
 
-  // create: function () {},
+  create: function (table, cols, vals, cb) {
+    var queryString = "INSERT INTO " + table;
 
-  // update: function () {},
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += printQuestionMarks(vals.length);
+    queryString += ") ";
+
+    console.log(queryString);
+  },
+
+  update: function (table, objColVals, condition, cb) {
+    var queryString = "UPDATE " + table;
+
+    queryString += " Set ";
+    queryString += objToSql(objColVals);
+    queryString += " WHERE ";
+    queryString += condition;
+
+    console.log(queryString);
+    connection.query(queryString, function (err, results) {
+      if (err) throw err;
+
+      cb(results);
+    });
+  },
+
+  // delete: function () {},
 };
 
 module.exports = orm;
