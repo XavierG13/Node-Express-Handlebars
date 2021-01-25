@@ -11,9 +11,15 @@
                 {{#each burgers}}
                 {{#unless devoured}}
                 <li class="list-group-item">
-                    <div class="input-group">
-                        
-                    </div>
+                    <p class="lead">{{burger_name}}</p>
+
+                    <span class="devour-btn">
+                        <button class="change-devour" data-id="{{id}}">
+                            DEVOUR BURGER!
+                        </button>
+                        <button class="delete-burger" data-id="{{this.id}}">
+                            DELETE!</button>
+                    </span>
                 </li>
                 {{/unless}}
                 {{/each}}
@@ -24,10 +30,19 @@
     <h2>Burgers DEVOURED!</h2>
 
     <ul>
-        {{#each burgers}}
-        {{#if devoured}}
-        {{/if}}
-        {{/each}}
+        <div class="row">
+            <div class="col-md-5">
+                <ul class="list-group">
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    <li class="list-group-item">
+                        <p class="lead">{{burger_name}}</p>
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
     </ul>
 
     <h2>Add Burger</h2>
