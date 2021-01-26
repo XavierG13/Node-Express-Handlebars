@@ -25,9 +25,8 @@ router.post("/burgers/create", function (req, res) {
   console.log(res);
   burgers.create(["burger_name"], [req.body.burger_name], function (data) {
     // will send the id of the new burger back
-    console.log(res.json({ id: data.insertId }));
-    res.redirect("/burgers");
   });
+  res.redirect("/burgers");
 });
 
 router.put("/burgers/update/:id", function (req, res) {
@@ -35,19 +34,14 @@ router.put("/burgers/update/:id", function (req, res) {
 
   console.log("condition", condition);
 
-  burgers.update(
-    ["devoured"],
-    [req.body.devoured],
-    [condition],
-    function (data) {
-      res.redirect("/burgers");
-      if (data.changedRows == 0) {
-        return res.status(404).end();
-      } else {
-        res.status(200).end();
-      }
+  burgers.update({ devoured: req.body.devoured }, condition, function (data) {
+    res.redirect("/burgers");
+    if (data.changedRows == 0) {
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
     }
-  );
+  });
 });
 
 router.delete("/burgers/delete/:id", function (req, res) {
