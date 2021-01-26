@@ -40,9 +40,10 @@
                         <p class="lead">{{burger_name}}</p>
 
                         <span class="devour-btn">
-                            <button class="delete-burger" data-id="{{this.id}}">
-                                DELETE!
-                            </button>
+                            <form action="burgers/delete/{{this.id}}?_method=DELETE" method="POST">
+                                <button class="delete-burger" data-id="{{this.id}}">
+                                    DELETE!
+                                </button>
                         </span>
 
                     </li>

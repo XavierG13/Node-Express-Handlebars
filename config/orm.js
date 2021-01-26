@@ -30,6 +30,8 @@ function objToSql(ob) {
 }
 
 var orm = {
+
+  // Selects all burgers from the database
   all: function (tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
 
@@ -40,6 +42,7 @@ var orm = {
     });
   },
 
+  // Will create a new burger for db once user has input info
   create: function (table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
@@ -58,6 +61,7 @@ var orm = {
     });
   },
 
+  // When user chooses to eat burger this will move burger to devoured section of page
   update: function (table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
@@ -74,6 +78,7 @@ var orm = {
     });
   },
 
+  // If user wishes to delete a burger they can after it has been devoured
   delete: function (table, condition, cb) {
     var queryString = "DELETE FROM " + table;
     queryString += " WHERE ";

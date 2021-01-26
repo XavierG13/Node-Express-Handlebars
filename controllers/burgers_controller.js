@@ -48,13 +48,13 @@ router.delete("/burgers/delete/:id", function (req, res) {
   var condition = "id = " + req.params.id;
 
   burgers.delete(condition, function (data) {
-    res.redirect("/burgers");
     if (data.affectedRows == 0) {
       return res.status(404).end();
     } else {
       res.status(200).end();
     }
   });
+  res.redirect("/burgers");
 });
 
 // // will be used to create a new burger of users choice
