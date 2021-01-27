@@ -1,0 +1,24 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 45px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 45px;
+    text-align: center;
+    width: 100%;
+    background-color: #4a76a1;
+    border-top: 5px solid #000000;
+}
+
+footer small {
+    line-height: 40px;
+    color: #000000;
+    font-size: 12px;
+}

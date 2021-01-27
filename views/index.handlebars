@@ -1,65 +1,70 @@
+<nav class="navbar col-md">
+    <img src="/assets/img/burger.jpg" class="d-inline-block align-top mx-auto" alt="burger" height="150">
+</nav>
+
 <div class="container">
 
-    <div class="jumboton">
-        <img src="/assets/img/burger.jpg" alt="burger" width="auto" height="auto">
-    </div>
-
-    <h2>Add Burger</h2>
-    <p class="lead"> Add additional burgers here! </p>
-
-    <form class="create-update-form" action="/burgers/create" method="POST">
-
-        <div class="form-group">
-            <input type="text" id="newBurger" name="burger_name">
-        </div>
-
-        <button class="btn-primary" type="submit">Add Burger</button>
-    </form>
-
-    <h2>Burgers to be DEVOURED!</h2>
     <div class="row">
-        <div class="col-md-5">
-            <ul>
-                {{#each burgers}}
-                {{#unless this.devoured}}
-                <li class="list-group-item">
-                    <span class="input-group-btn">
-                        <p class="lead">{{this.burger_name}}</p>
-                        <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
-                            <input type="hidden" name="devoured" value="true">
-                            <button class="btn btn-default btn-lg" type="submit">Devour it!</button>
-                        </form>
-                    </span>
-                </li>
-                {{/unless}}
-                {{/each}}
-            </ul>
+        <div class="col-md-3">
+            <h2>New Burger:</h2>
+            <p class="lead"> Add additional burgers here! </p>
+
+            <form class="create-update-form" action="/burgers/create" method="POST">
+
+                <div class="form-group">
+                    <input type="text" id="newBurger" name="burger_name">
+                </div>
+
+                <button class="btn-primary" type="submit">Add Burger</button>
+            </form>
         </div>
-    </div>
 
-    <h2>Burgers DEVOURED!</h2>
-
-    <ul>
         <div class="row">
-            <div class="col-md-5">
-                <ul class="list-group">
-                    {{#each burgers}}
-                    {{#if this.devoured}}
-                    <li class="list-group-item">
-                        <p class="lead">{{this.burger_name}}</p>
-                        <span class="devour-btn">
-                            <form action="burgers/delete/{{this.id}}?_method=DELETE" method="POST">
-                                <button class="delete-burger" type="submit" data-id="{{this.id}}">
-                                    DELETE!
-                                </button>
-                        </span>
-
-                    </li>
-                    {{/if}}
-                    {{/each}}
+            <div class="col">
+                <ul>
+                    <h2>Burgers to be DEVOURED!</h2>
+                    <div class="row">
+                        <div class="col">
+                            {{#each burgers}}
+                            {{#unless this.devoured}}
+                            <li class="list-group-item">
+                                <span class="input-group-btn">
+                                    <p class="lead">{{this.burger_name}}</p>
+                                    <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                                        <input type="hidden" name="devoured" value="true">
+                                        <button class="btn btn-default btn-lg" type="submit">Devour it!</button>
+                                    </form>
+                                </span>
+                            </li>
+                            {{/unless}}
+                            {{/each}}
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>
-    </ul>
 
+        <div class="col">
+            <ul>
+                <h2>Burgers DEVOURED!</h2>
+                <div class="row">
+                    <div class="col">
+                        {{#each burgers}}
+                        {{#if this.devoured}}
+                        <li class="list-group-item">
+                            <p class="lead" data-id="{{this.id}}">{{this.burger_name}}</p>
+                            <span class="devour-btn">
+                                <form action="burgers/delete/{{this.id}}?_method=DELETE" method="POST">
+                                    <button class="delete-burger" type="submit">
+                                        DELETE!
+                                    </button>
+                            </span>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
 </div>
