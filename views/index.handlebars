@@ -52,10 +52,10 @@
                         {{#each burgers}}
                         {{#if this.devoured}}
                         <li class="list-group-item">
-                            <p class="lead" data-id="{{this.id}}">{{this.burger_name}}</p>
+                            <p class="lead">{{this.burger_name}}</p>
                             <span class="devour-btn">
                                 <form action="burgers/delete/{{this.id}}?_method=DELETE" method="POST">
-                                    <button class="delete-burger" type="submit">
+                                    <button class="delete-burger" type="submit" data-id="{{this.id}}">
                                         DELETE!
                                     </button>
                             </span>
