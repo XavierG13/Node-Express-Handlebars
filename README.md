@@ -58,5 +58,8 @@ npm i body-parser: parse information under the req.body property where client do
 
 # Examples:
 
+## Images
+- ![Devour Da Burger](public/assets/img/devourdaburger.png)
+
 ## Video:
 - [Link to video](https://drive.google.com/file/d/1DgeQDcA6lA3JUCOvQlwHGCvYcJ6utuhH/view)
