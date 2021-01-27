@@ -22,11 +22,13 @@ router.get("/burgers", function (req, res) {
 });
 
 router.post("/burgers/create", function (req, res) {
-  console.log(res);
-  burgers.create(["burger_name"], [req.body.burger_name], function (data) {
+  // console.log(res);
+  burgers.create(["burger_name"], [req.body.burger_name], function (result) {
     // will send the id of the new burger back
+    // res.json({ id: result.insertId });
+    res.redirect("/burgers");
   });
-  res.redirect("/burgers");
+  // res.json({ id: result.insertId });
 });
 
 router.put("/burgers/update/:id", function (req, res) {
